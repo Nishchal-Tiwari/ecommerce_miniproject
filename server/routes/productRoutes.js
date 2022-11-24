@@ -27,6 +27,11 @@ router.get('/:id',
             res.status(404).send({ message: "Product not found" })
 
     })
+router.get('/s/:cat', async(req, res) => {
+
+    const product = await Product.find({ category: req.params.cat });
+    res.send(product)
+})
 
 
 
